@@ -1,0 +1,5 @@
+$ archlinux-java status
+aa
+bb
+cc
+$ sudo archlinux-java set bb
