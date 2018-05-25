@@ -13,3 +13,29 @@
 # un repo especifico
 
 {"query":"query {repository(name:\"thorntail-demo\", owner:\"sebastian4j\") {createdAt databaseId description diskUsage id name resourcePath }}"}
+
+# juntos
+
+query ($qRepos:Int!) { 
+  viewer { 
+    login
+    bio
+    createdAt
+    email
+    location
+    name
+    repositories (last: $qRepos) {
+      nodes {
+        name
+        createdAt
+        id
+        url
+        sshUrl        
+      }
+      totalCount
+      totalDiskUsage
+    }
+  }
+}
+
+{"qRepos": 3}
