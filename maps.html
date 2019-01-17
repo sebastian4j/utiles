@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>marcas</title>
+        <style>
+            #map {
+                height: 100%;
+            }
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+            function initialize() {
+                var puntos = [
+                    {lat: 37.772, lng: -122.214},
+                    {lat: 21.291, lng: -157.821},
+                    {lat: -18.142, lng: 178.431},
+                    {lat: -27.467, lng: 153.027}
+                ];
+                var opciones = {
+                    zoom: 3,
+                    center: new google.maps.LatLng(21.291, -157.821),
+                    zoomControl: true,
+                    zoomControlOptions: {
+                        position: google.maps.ControlPosition.LEFT_CENTER
+                    },
+                    streetViewControl: true,
+                    streetViewControlOptions: {
+                        position: google.maps.ControlPosition.LEFT_TOP
+                    },
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    minZoom: 3,
+                    scrollwheel: false
+                };
+                var map = new google.maps.Map(document.getElementById("map"), opciones);
+                for (i = 0; i < puntos.length; i++) {
+                    new google.maps.Marker({
+                        position: new google.maps.LatLng(puntos[i]['lat'], puntos[i]['lng']),
+                        map: map
+                    });
+                }
+                var lineas = new google.maps.Polyline({
+                    path: puntos,
+                    geodesic: true,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+                });
+                lineas.setMap(map);
+            }
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?callback=initialize">
+        </script>
+    </body>
+</html>
