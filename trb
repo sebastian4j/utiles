@@ -1,0 +1,35 @@
+geany keyboards/iris/keymaps/sebastian-inv/keymap.c 
+sudo make iris/rev2:sebastian-inv:avrdude
+https://beta.docs.qmk.fm/newbs/newbs_flashing#flash-your-keyboard-from-the-command-line
+java -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=y -jar target/hola-debug-0.0.1-SNAPSHOT.jar 
+git reset --hard origin/master
+
+@PostConstruct
+  private void init() {
+    System.out.println(":::::::");
+    final JndiTemplate jndi = new JndiTemplate();
+    try {
+      final DataSource ds = jndi.lookup("java:comp/env/jdbc/xxxx", DataSource.class);
+      System.out.println(ds.getClass());
+      System.out.println("____");
+      final org.apache.tomcat.dbcp.dbcp2.BasicDataSource bds = (org.apache.tomcat.dbcp.dbcp2.BasicDataSource)ds;
+      System.out.println(bds.getUrl());
+      System.out.println(bds.getUsername());
+    } catch (final NamingException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  puttygen keyfile.pem -O private -o avdev.ppk
+  
+<none>
+docker rmi -f $(docker images -f "dangling=true" -q --no-trunc)
+<Exited>
+docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm
+
+docker run --restart always -e bd_url=jrrrrrr -e bd_user=wwwww --log-opt max-size=20m --log-opt max-file=10  -d 920ddfbd8835
+docker run -e bd_url=wwww -e bd_user=werwerwer -e bd_pass=werf --log-opt max-size=20m --log-opt max-file=10  -d 857824b517db
+
+docker update --restart=no id-container
+docker exec -it id-container bash
+mvn clean package -DskipTests docker:build
